@@ -13,31 +13,31 @@ public class DegreeOrRadian {
     public static String getDesc() {
         return desc;
     }
-    static String transformRadianToDegree(int mathMethod) {
-        return concatenateResult(setInitialDegrees(mathMethod) * (180/PI));
-    }
-    static String transformDegreeToRadian(int mathMethod) {
-        return concatenateResult(setInitialDegrees(mathMethod) * (PI/180));
-    }
-    static String concatenateResult(double transformedResult) {
-        return String.format("%.3f", transformedResult);
-    }
-    static double setInitialDegrees(int mathMethod) {
+    public static void transformDegreeOrRadian() {
         Scanner scanner = new Scanner(System.in);
-        if (mathMethod == 0) {
+        System.out.println(longDesc + "\nWould you like to convert Degrees to Radians or Radians to Degrees? Choose 0 or 1:");
+        int conversionMethod = scanner.nextInt();
+        switch (conversionMethod) {
+            case 0 -> System.out.println(transformDegreeToRadian(conversionMethod));
+            case 1 -> System.out.println(transformRadianToDegree(conversionMethod));
+        }
+    }
+    static String transformRadianToDegree(int conversionMethod) {
+        return concatenateResult(setInitialDegrees(conversionMethod) * (180/PI));
+    }
+    static String transformDegreeToRadian(int conversionMethod) {
+        return concatenateResult(setInitialDegrees(conversionMethod) * (PI/180));
+    }
+    static double setInitialDegrees(int conversionMethod) {
+        Scanner scanner = new Scanner(System.in);
+        if (conversionMethod == 0) {
             System.out.println("Converting Degrees to Radians. Input degrees from 0 to 360");
             return scanner.nextDouble();
         }
         System.out.println("Converting Radians into Degrees. Input Radians from 0 to 6.2835");
         return scanner.nextDouble();
     }
-    public static void transformDegreeOrRadian() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(longDesc + "\nWould you like to convert Degrees to Radians or Radians to Degrees? Choose 0 or 1:");
-        int mathMethod = scanner.nextInt();
-        switch (mathMethod) {
-            case 0 -> System.out.println(transformDegreeToRadian(mathMethod));
-            case 1 -> System.out.println(transformRadianToDegree(mathMethod));
-        }
+    static String concatenateResult(double transformedResult) {
+        return String.format("%.3f", transformedResult);
     }
 }
