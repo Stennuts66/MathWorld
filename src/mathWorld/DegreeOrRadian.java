@@ -13,7 +13,6 @@ public class DegreeOrRadian {
     public static String getDesc() {
         return desc;
     }
-
     static String transformRadianToDegree(int mathMethod) {
         return concatenateResult(setInitialDegrees(mathMethod) * (180/PI));
     }
