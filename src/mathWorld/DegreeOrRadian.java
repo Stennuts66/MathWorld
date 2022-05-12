@@ -23,21 +23,18 @@ public class DegreeOrRadian {
         }
     }
     static String transformRadianToDegree(int conversionMethod) {
-        return concatenateResult(setInitialDegrees(conversionMethod) * (180/PI));
+        System.out.println("Converting Radians into Degrees. Input Radians from 0 to 6.2835");
+        return concatenateResult(getInput() * (180/PI));
     }
     static String transformDegreeToRadian(int conversionMethod) {
-        return concatenateResult(setInitialDegrees(conversionMethod) * (PI/180));
+        System.out.println("Converting Degrees to Radians. Input degrees from 0 to 360");
+        return concatenateResult(getInput() * (PI/180));
     }
-    static double setInitialDegrees(int conversionMethod) {
+    static double getInput() {
         Scanner scanner = new Scanner(System.in);
-        if (conversionMethod == 0) {
-            System.out.println("Converting Degrees to Radians. Input degrees from 0 to 360");
-            return scanner.nextDouble();
-        }
-        System.out.println("Converting Radians into Degrees. Input Radians from 0 to 6.2835");
         return scanner.nextDouble();
     }
-    static String concatenateResult(double transformedResult) {
-        return String.format("%.3f", transformedResult);
+    static String concatenateResult(double transformationResult) {
+        return String.format("%.3f", transformationResult);
     }
 }
