@@ -7,10 +7,10 @@ public class MathLoader {
     static void addMathsToList() {
         mathsDescriptions.add(DegreeOrRadian.getDesc());
     }
-    public static void printChoices() {
+    static void printChoices() {
         mathsDescriptions.forEach((mathDesc) -> System.out.println(mathDesc.indexOf(mathDesc) + " | " + mathDesc));
     }
-    public static int chooseMathMethod() {
+    static int chooseMathMethod() {
         Scanner scanner;
         do {
             System.out.println("-----\nWould you like to solve a Math problem? Write a number from 0 to 10. 10 to exit.");
@@ -18,7 +18,7 @@ public class MathLoader {
         } while (!scanner.hasNextInt());
         return scanner.nextInt();
     }
-    public static void selectMath(int mathMethodNumber){
+    static void selectMath(int mathMethodNumber){
         if (mathMethodNumber == 0) {
             DegreeOrRadian.transformDegreeOrRadian();
         }

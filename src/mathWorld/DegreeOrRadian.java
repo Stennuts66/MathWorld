@@ -15,7 +15,7 @@ public class DegreeOrRadian {
     }
     public static void transformDegreeOrRadian() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(longDesc + "\nWould you like to convert Degrees to Radians or Radians to Degrees? Choose 0 or 1:");
+        System.out.println(longDesc + "---\nWould you like to convert Degrees to Radians or Radians to Degrees? Choose 0 or 1:");
         int conversionMethod = scanner.nextInt();
         switch (conversionMethod) {
             case 0 -> System.out.println(transformDegreeToRadian(conversionMethod));
@@ -31,7 +31,10 @@ public class DegreeOrRadian {
         return concatenateResult(getInput() * (PI/180));
     }
     static double getInput() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner;
+        do {
+            scanner = new Scanner(System.in);
+        } while (!scanner.hasNextDouble());
         return scanner.nextDouble();
     }
     static String concatenateResult(double transformationResult) {
