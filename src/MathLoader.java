@@ -6,9 +6,10 @@ public class MathLoader {
     static ArrayList<String> mathsDescriptions = new ArrayList<>();
     static void addMathsToList() {
         mathsDescriptions.add(DegreeOrRadian.getDesc());
+        mathsDescriptions.add(PrimeCalculator.getDesc());
     }
     static void printChoices() {
-        mathsDescriptions.forEach((mathDesc) -> System.out.println(mathDesc.indexOf(mathDesc) + " | " + mathDesc));
+        mathsDescriptions.forEach((mathDesc) -> System.out.println(mathsDescriptions.indexOf(mathDesc) + ". | " + mathDesc));
     }
     static int chooseMathMethod() {
         Scanner scanner;
@@ -21,6 +22,8 @@ public class MathLoader {
     static void selectMath(int mathMethodNumber){
         if (mathMethodNumber == 0) {
             DegreeOrRadian.transformDegreeOrRadian();
+        } else if (mathMethodNumber == 1){
+            PrimeCalculator.calculatePrimes();
         }
     }
     public static void doMath() {
